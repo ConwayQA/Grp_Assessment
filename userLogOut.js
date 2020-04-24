@@ -1,12 +1,12 @@
 const REQ = new XMLHttpRequest();
 
-let data =
-  '{"id": 0, "username": "MattyB", "firstName": "Mattie", "lastName": "Burt", "email": "matthewaaronburt@gmail.com", "password": "noice", "phone": "0758756543", "userStatus": 0}';
+let dataForLogOut =
+  '{"id": 0, "username": "MattyB", "password": "noice"}';
 
 function getLogOut() {
   REQ.open(
     "GET",
-    "https://petstore.swagger.io/v2/user/logout?username=user1&password=user1"
+    "https://petstore.swagger.io/v2/user/logout?username=${}&password=${}"
   );
   REQ.setRequestHeader("Content-Type", "Application/json");
   REQ.onload = () => {
@@ -19,7 +19,7 @@ function getLogOut() {
     }
   };
 
-  REQ.send(data);
+  REQ.send(dataForLogOut);
 }
 
 let buttGetLogout = document.querySelector("#butGetLogout");
