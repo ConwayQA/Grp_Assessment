@@ -1,4 +1,4 @@
-let data = '{"id": 0, "username" : "Korbinian","firstName": "Korbinian","lastName": "Ring","email": "k.ring@outlook.com","password": "root","phone": "23434134","userStatus": 0}'
+let createData = '{"id": 0, "username" : "Korbinian","firstName": "Korbinian","lastName": "Ring","email": "k.ring@outlook.com","password": "root","phone": "23434134","userStatus": 0}'
 
 function createUser() {
     REQ.open('POST', 'http://petstore.swagger.io/v2/user');
@@ -7,11 +7,12 @@ function createUser() {
     REQ.onload = () => {
         if (REQ.status === 200) {
             console.log(REQ.response);
+            return "done";
         } else {
             console.log('handle error');
         }
     }
-    REQ.send(data); // Waht we want to send across
+    REQ.send(createData); // Waht we want to send across
 }
 
 let buttCreateUser = document.querySelector('#buttCreateUser');

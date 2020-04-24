@@ -1,8 +1,9 @@
 let loginData = '{"username": "Korbinian","password": "root"}';
 
 function getLogin() {
-  let obj = JSON.parse(loginData);
-  REQ.open("GET",`https://petstore.swagger.io/v2/user/login?username=${obj.username}&password=${obj.password}`);
+  let obj2 = JSON.parse(loginData);
+
+  REQ.open("GET",`https://petstore.swagger.io/v2/user/login?username=${obj2.username}&password=${obj2.password}`);
   REQ.setRequestHeader("Content-Type", "Application/json");
   REQ.onload = () => {
     if (REQ.status === 200) {
@@ -11,10 +12,52 @@ function getLogin() {
       console.log(`Handle Error!`);
     }
   };
-  //REQ.setRequestHeader("Access-Control-Allow-Origin", "*");
-  //REQ.responseType = "json";
-  REQ.send(data);
+  REQ.send(loginData);
 }
 
+let userData2 ='{"username": "Korbinian"}';
+
+function getUsername() {
+  let obj2 = JSON.parse(loginData);
+  REQ.open("GET", `http://petstore.swagger.io/v2/user/${obj2.username}`);
+  REQ.setRequestHeader("Content-Type", "Application/json");
+  REQ.onload = () => {
+    if (REQ.status === 200) {
+      console.log(REQ.response);
+      let obj1 = JSON.parse(REQ.response);
+      if (obj2.password === obj1.password){
+        console.log("logged in succesfully!");
+           getLogin(); 
+           changeUserstatus(obj1);
+      } else{
+        console.log(obj1.password + " is not " + obj2.password);
+      }
+    } else {
+      console.log(`Handle Error!`);
+    }
+  };
+  REQ.send(userData2);
+}
+
+function changeUserstatus(detailsObject) {
+  detailsObject.userStatus = 1;
+  detailsJSON = JSON.stringify(detailsObject);
+  REQ.open("PUT", `http://petstore.swagger.io/v2/user/${detailsJSON.username}`);
+  REQ.setRequestHeader("Content-Type", "Application/json");
+  REQ.onload = () => {
+    if (REQ.status === 200) {
+      console.log(REQ.response);
+    } else {
+      console.log(`Handle Error!`);
+    }
+  };
+  REQ.send(detailsJSON);
+}
+
+function login2() {
+  getUsername();
+}
+
+
 let buttGetLogin = document.querySelector("#buttGetLogin");
-buttGetLogin.addEventListener("click", getLogin);
+buttGetLogin.addEventListener("click", login2);
