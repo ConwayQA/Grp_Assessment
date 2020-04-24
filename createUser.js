@@ -1,5 +1,3 @@
-const REQ = new XMLHttpRequest();
-
 let data = '{"id": 0, "username" : "Kring","firstName": "Korbinian","lastName": "Ring","email": "k.ring@outlook.com","password": "root","phone": "23434134","userStatus": 0}'
 
 function createUser() {

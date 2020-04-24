@@ -1,6 +1,6 @@
 const REQ = new XMLHttpRequest();
 
-let data =
+let userData =
   '{"id": 0, "username": "DavidW", "firstName": "David", "lastName": "Williams", "email": "dwill@gmail.com", "password": "noice", "phone": "07584962578", "userStatus": 0}';
 
 function getUsername() {
@@ -9,7 +9,6 @@ function getUsername() {
   REQ.onload = () => {
     if (REQ.status === 404) {
       console.log(REQ.response);
-      console.log(REQ.response.title);
       document.querySelector("#resp").innerHTML = REQ.response[0].title;
     } else {
       console.log(`Handle Error!`);
@@ -17,8 +16,8 @@ function getUsername() {
   };
   //REQ.setRequestHeader("Access-Control-Allow-Origin", "*");
   //REQ.responseType = "json";
-  REQ.send(data);
+  REQ.send(userData);
 }
 
-let buttGetUsername = document.querySelector("#butt1");
-butt1.addEventListener("click", getUsername);
+let buttGetUsername = document.querySelector("#buttGetUsername");
+buttGetUsername.addEventListener("click", getUsername);
