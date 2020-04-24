@@ -13,7 +13,7 @@ function getLogin() {
   };
   //REQ.setRequestHeader("Access-Control-Allow-Origin", "*");
   //REQ.responseType = "json";
-  REQ.send(data);
+  REQ.send(loginData);
 }
 
 let buttGetLogin = document.querySelector("#buttGetLogin");

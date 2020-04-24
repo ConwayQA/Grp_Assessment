@@ -13,7 +13,7 @@ function deleteUser() {
             console.log('handle error');
         }
     }
-    REQ.send(data); // Waht we want to send across
+    REQ.send(deleteData); // Waht we want to send across
 }
 
 let buttDeleteUser = document.querySelector('#buttDeleteUser');

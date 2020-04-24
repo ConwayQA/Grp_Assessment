@@ -1,7 +1,6 @@
 const REQ = new XMLHttpRequest();
 
-let userData =
-  '{"username": "Korbinian"}';
+let userData ='{"username": "Korbinian"}';
 
 function getUsername() {
   let obj = JSON.parse(userData);
