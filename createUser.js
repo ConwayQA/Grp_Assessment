@@ -7,6 +7,7 @@ function createUser() {
     REQ.onload = () => {
         if (REQ.status === 200) {
             console.log(REQ.response);
+            return "done";
         } else {
             console.log('handle error');
         }

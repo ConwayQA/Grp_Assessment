@@ -16,6 +16,8 @@ function getUsername() {
   //REQ.setRequestHeader("Access-Control-Allow-Origin", "*");
   //REQ.responseType = "json";
   REQ.send(userData);
+
+ 
 }
 
 let buttGetUsername = document.querySelector("#buttGetUsername");

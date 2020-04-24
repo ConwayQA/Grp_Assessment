@@ -1,4 +1,4 @@
-let putUserData = '{"username": "Korbinian"}';
+let putUserData = '{"id": "765959", "username": "Korbinian"}';
 
 function putUser() {
   let obj = JSON.parse(putUserData);

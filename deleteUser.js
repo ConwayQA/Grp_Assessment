@@ -2,7 +2,6 @@ let deleteData = '{"username" : "Korbinian"}'
 
 function deleteUser() {
     let obj = JSON.parse(deleteData);
-    console.log(obj.username);
     REQ.open('DELETE', `http://petstore.swagger.io/v2/user/${obj.username}`);
     REQ.setRequestHeader('Content-Type', 'Application/json');
     // REQ.setRequestHeader('Access-Control-Allow-Origin', '*'); leave this out, it throws error
