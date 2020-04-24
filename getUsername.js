@@ -10,7 +10,6 @@ function getUsername() {
   REQ.onload = () => {
     if (REQ.status === 200) {
       console.log(REQ.response);
-      document.querySelector("#resp").innerHTML = REQ.response[0].title;
     } else {
       console.log(`Handle Error!`);
     }
