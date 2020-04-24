@@ -1,7 +1,10 @@
-let data = '{"id": 0, "username" : "Korbinian","firstName": "Korbinian","lastName": "Ring","email": "k.ring@outlook.com","password": "root","phone": "23434134","userStatus": 0}'
+let deleteData = '{"username" : "Korbinian"}'
 
-function createUser() {
-    REQ.open('POST', 'http://petstore.swagger.io/v2/user');
+
+function deleteUser() {
+    let obj = JSON.parse(deleteData);
+    console.log(obj.username);
+    REQ.open('DELETE', "http://petstore.swagger.io/v2/user/" + obj.username);
     REQ.setRequestHeader('Content-Type', 'Application/json');
     // REQ.setRequestHeader('Access-Control-Allow-Origin', '*'); leave this out, it throws error
     REQ.onload = () => {
@@ -14,7 +17,7 @@ function createUser() {
     REQ.send(data); // Waht we want to send across
 }
 
-let buttCreateUser = document.querySelector('#buttCreateUser');
-buttCreateUser.addEventListener('click', createUser);
+let buttDeleteUser = document.querySelector('#buttDeleteUser');
+buttDeleteUser.addEventListener('click', deleteUser);
 
 

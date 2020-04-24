@@ -1,13 +1,14 @@
 const REQ = new XMLHttpRequest();
 
 let userData =
-  '{"id": 0, "username": "DavidW", "firstName": "David", "lastName": "Williams", "email": "dwill@gmail.com", "password": "noice", "phone": "07584962578", "userStatus": 0}';
+  '{"username": "Korbinian"}';
 
 function getUsername() {
-  REQ.open("GET", "http://petstore.swagger.io/v2/user/user1");
+  let obj = JSON.parse(userData);
+  REQ.open("GET", `http://petstore.swagger.io/v2/user/${obj.username}`);
   REQ.setRequestHeader("Content-Type", "Application/json");
   REQ.onload = () => {
-    if (REQ.status === 404) {
+    if (REQ.status === 200) {
       console.log(REQ.response);
       document.querySelector("#resp").innerHTML = REQ.response[0].title;
     } else {
