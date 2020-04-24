@@ -16,5 +16,7 @@ function createUser() {
     REQ.send(data); // Waht we want to send across
 }
 
-let butt1 = document.querySelector('#butt1');
-butt1.addEventListener('click', createUser);
+let buttCreateUser = document.querySelector('#buttCreateUser');
+buttCreateUser.addEventListener('click', createUser);
+
+
