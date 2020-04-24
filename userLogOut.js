@@ -1,4 +1,4 @@
-
+const REQ = new XMLHttpRequest();
 
 function getLogOut() {
   REQ.open(
@@ -8,6 +8,8 @@ function getLogOut() {
   REQ.onload = () => {
     if (REQ.status === 200) {
       console.log(REQ.response);
+      window.location.href = "http://127.0.0.1:5500/2020/4/24/Group_Assessment/index.html?username=&password=";    
+
     } else {
       console.log(`Handle Error!`);
     }

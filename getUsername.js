@@ -1,4 +1,4 @@
-const REQ = new XMLHttpRequest();
+
 
 let userData ='{"username": "Korbinian"}';
 

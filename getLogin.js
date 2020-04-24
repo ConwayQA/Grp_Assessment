@@ -1,8 +1,8 @@
-let loginData = '{"username": "Korbinian","password": "root"}';
+const REQ = new XMLHttpRequest();
 
 function getLogin() {
+  let loginData = `{"username": "${document.getElementById("username").value}","password": "${document.getElementById("password").value}"}`;
   let obj2 = JSON.parse(loginData);
-
   REQ.open("GET",`https://petstore.swagger.io/v2/user/login?username=${obj2.username}&password=${obj2.password}`);
   REQ.setRequestHeader("Content-Type", "Application/json");
   REQ.onload = () => {
@@ -15,28 +15,28 @@ function getLogin() {
   REQ.send(loginData);
 }
 
-let userData2 ='{"username": "Korbinian"}';
 
 function getUsername() {
+  let loginData = `{"username": "${document.getElementById("username").value}","password": "${document.getElementById("password").value}"}`;
   let obj2 = JSON.parse(loginData);
   REQ.open("GET", `http://petstore.swagger.io/v2/user/${obj2.username}`);
   REQ.setRequestHeader("Content-Type", "Application/json");
   REQ.onload = () => {
     if (REQ.status === 200) {
-      console.log(REQ.response);
+      // console.log(REQ.response);
       let obj1 = JSON.parse(REQ.response);
       if (obj2.password === obj1.password){
-        console.log("logged in succesfully!");
+        console.log("logging in...");
            getLogin(); 
            changeUserstatus(obj1);
       } else{
-        console.log(obj1.password + " is not " + obj2.password);
+        console.log("password incorrect");
       }
     } else {
       console.log(`Handle Error!`);
     }
   };
-  REQ.send(userData2);
+  REQ.send(loginData.username);
 }
 
 function changeUserstatus(detailsObject) {
@@ -46,7 +46,9 @@ function changeUserstatus(detailsObject) {
   REQ.setRequestHeader("Content-Type", "Application/json");
   REQ.onload = () => {
     if (REQ.status === 200) {
-      console.log(REQ.response);
+      console.log("logged in succesfully!");
+        // change the page!
+        window.location.href = "http://127.0.0.1:5500/2020/4/24/Group_Assessment/userPage.html";    
     } else {
       console.log(`Handle Error!`);
     }

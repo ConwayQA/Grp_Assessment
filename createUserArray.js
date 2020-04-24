@@ -1,10 +1,11 @@
 const REQ = new XMLHttpRequest();
-
-let data = '[{"id": 0,"username": "string","firstName": "string", "lastName": "string","email": "string","password": "string","phone": "string","userStatus": 0}]';
-function postTodo() {
+function createUser() {
+    let data = `[{"id": 0,"username": "${document.getElementById("username").value}","firstName": "${document.getElementById("firstName").value}", "lastName": "${document.getElementById("lastName").value}","email": "${document.getElementById("email").value}","password": "${document.getElementById("password").value}","phone": "${document.getElementById("phoneNr").value}","userStatus": 0}]`;
     REQ.onload = () => {
         if (REQ.status === 200) {
             console.log(REQ.response);
+            console.log("user created");
+            window.location.href = "http://127.0.0.1:5500/2020/4/24/Group_Assessment/index.html";
         } else {
             console.log('handle error');
         }
@@ -15,6 +16,6 @@ function postTodo() {
     REQ.send(data); // Waht we want to send across
 }
 
-let butt1 = document.querySelector('#butt1');
-butt1.addEventListener('click', postTodo);
+let buttCreateUser = document.querySelector('#buttCreateUser');
+buttCreateUser.addEventListener('click', createUser);
 
