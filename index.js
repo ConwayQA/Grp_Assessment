@@ -5,11 +5,9 @@ let data = '{"id": 0, "username" : "Kring","firstName": "Korbinian","lastName": 
 function createUser() {
     REQ.open('POST', 'http://petstore.swagger.io/v2/user');
     REQ.setRequestHeader('Content-Type', 'Application/json');
-    // REQ.setRequestHeader('Access-Control-Allow-Origin', '*');
-    // REQ.setRequestHeader('access-control-allow-methods', '*');
-    // REQ.setRequestHeader('access-control-allow-headers', '*');
+    // REQ.setRequestHeader('Access-Control-Allow-Origin', '*'); leave this out, it throws error
     REQ.onload = () => {
-        if (REQ.status === 201) {
+        if (REQ.status === 200) {
             console.log(REQ.response);
         } else {
             console.log('handle error');
