@@ -48,7 +48,7 @@ function changeUserstatus(detailsObject) {
     if (REQ.status === 200) {
       console.log("logged in succesfully!");
         // change the page!
-        window.location.href = "http://127.0.0.1:5500/2020/4/24/Group_Assessment/userPage.html";    
+        window.location.href = "./userPage.html";    
     } else {
       console.log(`Handle Error!`);
     }

@@ -8,7 +8,7 @@ function createUser() {
         if (REQ.status === 200) {
             console.log(REQ.response);
             console.log("user created");
-            window.location.href = "http://127.0.0.1:5500/2020/4/24/Group_Assessment/index.html";
+            window.location.href = "./index.html";
         } else {
             console.log('handle error');
         }
