@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="ImgCSS.css">
+</head>
+<body>
+
+    <form id="imgForm" enctype="multipart/form-data" method="POST" name="imgForm">
+        <fieldset class="centre">
+            <br>
+            <legend class="legend1">Pet Image Submission!</legend>
+            <label for="petId">Pets ID:</label>
+            <input type="number" id="petId"><br><br><br>
+            <label for="additionalMetadata">Caption this Picture!:</label>
+            <input type="text" id="additionalMetadata" name="additionalMetadata"><br><br><br>
+            <label for="file">Upload the image:</label>
+            <input type="file" id="file" name="file"><br><br><br>
+            <img id="newImg"><br><br><br>
+            <input type="submit" id="imgBtn">
+        </fieldset>
+    </form>
+    <script src="./Img.js"></script>
+</body>
+</html>
